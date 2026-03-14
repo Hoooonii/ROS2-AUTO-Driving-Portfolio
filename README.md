@@ -118,9 +118,9 @@ source install/setup.bash
 <br>
 <blockquote>
 <sub>
-<strong>한계 (V1):</strong> 단순히 객체의 면적이 일정 수준을 넘으면 정지(AEB)하도록 구현했으나, 여러 차량이 화면에 들어올 경우 타겟을 잃고 제어 명령이 요동치는 현상 발생. [cite: 67, 69]<br><br>
-<strong>개선 (V2):</strong> 탐지된 모든 객체 중 면적이 가장 큰(최근접) 장애물만 필터링하는 <strong>'Worst-Case Priority (Max Area Filter)'</strong> 도입. 제어 신호의 변동성(Jitter)을 80% 이상 제거. [cite: 71, 72]<br><br>
-<strong>완성 (V3):</strong> 직진/정지만 가능했던 1D 제어를 넘어, 장애물의 중심 좌표(cx)와 LiDAR의 좌우 여유 공간 데이터를 융합하여 안전한 방향으로 핸들을 꺾는 <strong>2D 역방향 회피 조향(Evasive Steering)</strong>으로 알고리즘 격상. [cite: 75, 76]
+<strong>한계 (V1):</strong> 단순히 객체의 면적이 일정 수준을 넘으면 정지(AEB)하도록 구현했으나, 여러 차량이 화면에 들어올 경우 타겟을 잃고 제어 명령이 요동치는 현상 발생. <br><br>
+<strong>개선 (V2):</strong> 탐지된 모든 객체 중 면적이 가장 큰(최근접) 장애물만 필터링하는 <strong>'Worst-Case Priority (Max Area Filter)'</strong> 도입. 제어 신호의 변동성(Jitter)을 80% 이상 제거. <br><br>
+<strong>완성 (V3):</strong> 직진/정지만 가능했던 1D 제어를 넘어, 장애물의 중심 좌표(cx)와 LiDAR의 좌우 여유 공간 데이터를 융합하여 안전한 방향으로 핸들을 꺾는 <strong>2D 역방향 회피 조향(Evasive Steering)</strong>으로 알고리즘 격상.
 </sub>
 </blockquote>
 </details>
@@ -130,9 +130,9 @@ source install/setup.bash
 <br>
 <blockquote>
 <sub>
-<strong>문제:</strong> Mac UTM 환경에서 Ignition Gazebo 실행 시 OpenGL 3.3 미지원 및 X Display 에러로 인한 엔진 강제 종료 발생. [cite: 42, 46]<br><br>
-<strong>원인:</strong> M3 칩 가상화 환경의 GPU 가속 부재 및 Ogre2 엔진의 하드웨어 의존성 충돌. [cite: 48, 49]<br><br>
-<strong>해결:</strong> SDF 엔진을 <strong>ogre1</strong>로 강등시키고, <strong>Xvfb</strong> 가상 프레임버퍼를 도입하여 GUI 없이도 센서 데이터를 정상 렌더링하는 Cloud-Native 아키텍처 완성. [cite: 52, 54, 55]
+<strong>문제:</strong> Mac UTM 환경에서 Ignition Gazebo 실행 시 OpenGL 3.3 미지원 및 X Display 에러로 인한 엔진 강제 종료 발생. <br><br>
+<strong>원인:</strong> M3 칩 가상화 환경의 GPU 가속 부재 및 Ogre2 엔진의 하드웨어 의존성 충돌.<br><br>
+<strong>해결:</strong> SDF 엔진을 <strong>ogre1</strong>로 강등시키고, <strong>Xvfb</strong> 가상 프레임버퍼를 도입하여 GUI 없이도 센서 데이터를 정상 렌더링하는 Cloud-Native 아키텍처 완성.
 </sub>
 </blockquote>
 </details>
@@ -142,8 +142,8 @@ source install/setup.bash
 <br>
 <blockquote>
 <sub>
-<strong>문제:</strong> NumPy 2.x 업데이트 이후 ROS 2 cv_bridge 모듈과의 이진 인터페이스 충돌(AttributeError)로 시스템 마비. [cite: 11]<br><br>
-<strong>해결:</strong> 에러 로그 정밀 분석을 통해 원인 파악 후, 패키지 버전 피닝(Version Pinning)을 적용하여 호환성이 검증된 NumPy 1.x 환경으로 긴급 복구 및 인프라 안정화 달성. [cite: 11]
+<strong>문제:</strong> NumPy 2.x 업데이트 이후 ROS 2 cv_bridge 모듈과의 이진 인터페이스 충돌(AttributeError)로 시스템 마비.<br><br>
+<strong>해결:</strong> 에러 로그 정밀 분석을 통해 원인 파악 후, 패키지 버전 피닝(Version Pinning)을 적용하여 호환성이 검증된 NumPy 1.x 환경으로 긴급 복구 및 인프라 안정화 달성.
 </sub>
 </blockquote>
 </details>
