@@ -39,3 +39,17 @@
  ┣ 📂 yolo_vision_pkg/        # YOLOv8 추론, LiDAR 퓨전, 모터 제어(cmd_vel) AI 노드
  ┣ 📜 run_all.sh              # 시뮬레이터, 브릿지, AI 노드 원클릭 통합 실행 스크립트
  ┗ 📜 README.md
+```
+
+<br>
+
+## 🚀 Quick Start
+```
+# 1. 워크스페이스 빌드
+cd ~/ros2_ws
+colcon build --symlink-install
+source install/setup.bash
+
+# 2. 통합 환경 실행 (Xvfb 가상 모니터 + Gazebo + Foxglove Bridge + AI Node)
+./run_all.sh
+```
