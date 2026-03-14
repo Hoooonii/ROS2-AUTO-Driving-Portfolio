@@ -81,3 +81,28 @@ source install/setup.bash
     </tr>
   </tbody>
 </table>
+
+### 2. Edge 환경 AI 추론 최적화
+제한된 CPU 자원 내에서 정확도와 속도의 트레이드오프(Trad-off) 분석.
+
+<table>
+  <thead>
+    <tr>
+      <th align="left" width="40%">성능 지표</th>
+      <th align="left" width="30%">AS-IS (YOLOv8s) (Latency)</th>
+      <th align="left" width="30%">TO-BE (YOLOv8n + 최적화)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>추론 시간 (Inference)</td>
+      <td>62.0 ms (프레임 드랍)</td>
+      <td>4.5 ms (실시간 처리)</td>
+    </tr>
+    <tr>
+      <td><strong>초당 프레임 (FPS)</strong></td>
+      <td><strong>약 16 FPS (제어 불안정)</strong></td>
+      <td><strong>약 35 ~ 40 FPS (안정적)</strong></td>
+    </tr>
+  </tbody>
+</table>
