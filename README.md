@@ -83,6 +83,7 @@ source install/setup.bash
 </table>
 
 <br>
+
 ### 2. Edge 환경 AI 추론 최적화
 제한된 CPU 자원 내에서 정확도와 속도의 트레이드오프(Trad-off) 분석.
 
