@@ -57,9 +57,27 @@ source install/setup.bash
 <br>
 
 ## 📈 Optimization Results (정량적 성과)
-1. End-to-End 지연 시간 93% 단축
+### 1. End-to-End 지연 시간 93% 단축
 데이터 전송 방식을 Shared Memory 기반으로 재설계하여 통신 병목 해결.
 
-통신 방식	전송 지연 (Latency)	CPU 점유율 (직렬화 부하)
-일반 소켓/HTTP 방식	15.2 ms	18.4%
-ROS 2 + cv_bridge	1.1 ms	3.2%
+<table>
+  <thead>
+    <tr>
+      <th align="left" width="40%">통신 방식</th>
+      <th align="left" width="30%">전송 지연 (Latency)</th>
+      <th align="left" width="30%">CPU 점유율 (직렬화 부하)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>일반 소켓/HTTP 방식</td>
+      <td>15.2 ms</td>
+      <td>18.4%</td>
+    </tr>
+    <tr>
+      <td><strong>ROS 2 + cv_bridge</strong></td>
+      <td><strong>1.1 ms</strong></td>
+      <td><strong>3.2%</strong></td>
+    </tr>
+  </tbody>
+</table>
