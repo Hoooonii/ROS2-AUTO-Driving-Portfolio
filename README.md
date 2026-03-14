@@ -1,8 +1,7 @@
 <div align="center">
 
-# 🚗 ROS 2 Autonomous Driving & Sensor Fusion
-
-**Vision-LiDAR 센서 퓨전 기반 동적 장애물 회피 자율주행 시스템**
+🚗 ROS 2 Autonomous Driving & Sensor Fusion
+Vision-LiDAR 센서 퓨전 기반 동적 장애물 회피 자율주행 시스템
 
 <img src="https://img.shields.io/badge/ROS 2-Humble-22314E?style=for-the-badge&logo=ros">
 <img src="https://img.shields.io/badge/Ubuntu-22.04 LTS-E95420?style=for-the-badge&logo=ubuntu">
@@ -10,36 +9,34 @@
 <img src="https://img.shields.io/badge/Python-3.10-3776AB?style=for-the-badge&logo=python">
 <img src="https://img.shields.io/badge/YOLOv8-Ultralytics-00FFFF?style=for-the-badge&logo=yolo">
 
-<br><br>
+
 
 <img src="./assets/yolo_snapshot.jpg" alt="⚠️ 스크린샷 이미지 업로드 예정 (assets/yolo_snapshot.jpg)" width="80%">
-<br>
+
+
 <em>전방 차량 감지에 따른 회피 조향 및 실시간 바운딩 박스 오버레이</em>
 
 </div>
 
----
+🌟 Key Features
+👁️ Real-time Perception: YOLOv8 기반 다중 객체(차량, 버스 등) 실시간 탐지 및 추적
 
-## 🌟 Key Features
+🌐 Vision-LiDAR Sensor Fusion: 2D 비전의 사각지대(Depth 상실)를 보완하기 위해 360도 전방위 라이다(10Hz) 융합
 
-- 👁️ **Real-time Perception:** YOLOv8 기반 다중 객체(차량, 버스 등) 실시간 탐지 및 추적
-- 🌐 **Vision-LiDAR Sensor Fusion:** 2D 비전의 사각지대(Depth 상실)를 보완하기 위해 360도 전방위 라이다(10Hz) 융합
-- 🏎️ **Evasive Steering Control:** 장애물의 면적(Distance)과 중심점(Centroid)을 분석하여 긴급 제동(AEB) 및 능동 회피 조향
-- ⚡ **DDS Middleware & Zero-copy:** `cv_bridge`를 활용한 메모리 포인터 공유 방식으로 대용량 비전 데이터 파이프라인 최적화
+🏎️ Evasive Steering Control: 장애물의 면적(Distance)과 중심점(Centroid)을 분석하여 긴급 제동(AEB) 및 능동 회피 조향
 
-<br>
+⚡ DDS Middleware & Zero-copy: cv_bridge를 활용한 메모리 포인터 공유 방식으로 대용량 비전 데이터 파이프라인 최적화
 
-## 📂 Repository Structure
-
+📂 Repository Structure
 단일 리포지토리(Monorepo) 구조로 하드웨어 명세와 소프트웨어 제어 로직을 통합 관리합니다.
 
-```text
+Plaintext
 📦 ROS2-AUTO-Driving-Portfolio
  ┣ 📂 my_robot_description/   # 4륜 독립 구동 로봇 URDF 및 SDF 월드, 런치 파일
  ┣ 📂 yolo_vision_pkg/        # YOLOv8 추론, LiDAR 퓨전, 모터 제어(cmd_vel) AI 노드
  ┣ 📜 run_all.sh              # 시뮬레이터, 브릿지, AI 노드 원클릭 통합 실행 스크립트
  ┗ 📜 README.md
-```text
+
 🚀 Quick Start
 Bash
 # 1. 워크스페이스 빌드
