@@ -106,3 +106,45 @@ source install/setup.bash
     </tr>
   </tbody>
 </table>
+
+<br>
+
+## 🔥 Issues & Troubleshooting
+상세 트러블슈팅 과정입니다. 자세한 내용은 아래 토글을 클릭하여 확인해 주세요.
+
+<details>
+<summary><b>1. 다중 객체 탐지 시 제어 타겟 헌팅(Jitter) 및 알고리즘 고도화</b></summary>
+<div markdown="1">
+
+한계 (V1): 단순히 객체의 면적이 일정 수준을 넘으면 정지(AEB)하도록 구현했으나, 여러 차량이 화면에 들어올 경우 타겟을 잃고 제어 명령이 요동치는 현상 발생.
+
+개선 (V2): 탐지된 모든 객체 중 면적이 가장 큰(최근접) 장애물만 필터링하는 'Worst-Case Priority (Max Area Filter)' 도입. 제어 신호의 변동성(Jitter)을 80% 이상 제거.
+
+완성 (V3): 직진/정지만 가능했던 1D 제어를 넘어, 장애물의 중심 좌표(cx)와 LiDAR의 좌우 여유 공간 데이터를 융합하여 안전한 방향으로 핸들을 꺾는 **2D 역방향 회피 조향(Evasive Steering)**으로 알고리즘 격상.
+
+</div>
+</details>
+
+<details>
+<summary><b>2. Apple Silicon (M3) 가상머신 렌더링 엔진 크래시 해결</b></summary>
+<div markdown="1">
+
+문제: Mac UTM 환경에서 Ignition Gazebo 실행 시 OpenGL 3.3 is not supported 에러와 함께 엔진 강제 종료.
+
+원인: 가상머신의 하드웨어 GPU 가속 부재 및 Ogre2 엔진의 렌더링 파이프라인 충돌.
+
+해결: SDF 엔진을 ogre1로 강등시키고, xvfb-run을 도입해 RAM 상에 가짜 모니터(Virtual Framebuffer)를 생성. GUI 렌더링 과정을 완전히 우회(Headless)하면서도 센서 데이터는 정상 추출하는 Cloud-Native Simulation 아키텍처 완성.
+
+</div>
+</details>
+
+<details>
+<summary><b>3. 시스템 라이브러리 ABI 호환성 충돌 복구</b></summary>
+<div markdown="1">
+
+문제: 최신 NumPy 2.x 업데이트 후 ROS 2의 cv_bridge 모듈과 이진 인터페이스 충돌(AttributeError) 발생.
+
+해결: 에러 로그 추적 후 패키지 버전 피닝(Version Pinning)을 통해 호환성이 검증된 NumPy 1.x 버전 환경으로 격리 및 복구 완료.
+
+</div>
+</details>
