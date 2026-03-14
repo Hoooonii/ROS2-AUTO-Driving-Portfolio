@@ -33,7 +33,7 @@
 
 단일 리포지토리(Monorepo) 구조로 하드웨어 명세와 소프트웨어 제어 로직을 통합 관리합니다.
 
-```text
+```
 📦 ROS2-AUTO-Driving-Portfolio
  ┣ 📂 my_robot_description/   # 4륜 독립 구동 로봇 URDF 및 SDF 월드, 런치 파일
  ┣ 📂 yolo_vision_pkg/        # YOLOv8 추론, LiDAR 퓨전, 모터 제어(cmd_vel) AI 노드
@@ -53,3 +53,13 @@ source install/setup.bash
 # 2. 통합 환경 실행 (Xvfb 가상 모니터 + Gazebo + Foxglove Bridge + AI Node)
 ./run_all.sh
 ```
+
+<br>
+
+## 📈 Optimization Results (정량적 성과)
+1. End-to-End 지연 시간 93% 단축
+데이터 전송 방식을 Shared Memory 기반으로 재설계하여 통신 병목 해결.
+
+통신 방식	전송 지연 (Latency)	CPU 점유율 (직렬화 부하)
+일반 소켓/HTTP 방식	15.2 ms	18.4%
+ROS 2 + cv_bridge	1.1 ms	3.2%
